@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sounders Matchday Experience</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--meta data for sharing links on Facebook-->
+    <!--<meta property="og:title" content="The major cities in Oregon"/>
+    <meta property="og:url" content="http://geoviz.ceoas.oregonstate.edu/storymap/examples/2.5/video.html"/>
+    <meta property="og:description" content="This is an example of a storymap."/>
+    <meta property="og:image" content="../../img/social.png"/>-->
+
+    <!--add required stylesheets-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!--leaflet css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+
+    <!--add favicon for the web page-->
+    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+
+
+    <link rel="stylesheet" type="text/css" href="css/storymap.2.5.css">
+    <!--add required libraries-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
+    <!--jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <!--boostrap-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!--leaflet.ajax for asynchronously adding geojson data-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+
+    <!--mini globle map-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+    <script src="../../js/globeminimap.js"></script>
+
+    <!--story map plugin-->
+    <script src="js/storymap.2.5.js"></script>
+</head>
+<body>
+
+<div id="storymap" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 storymap-story">
+            <section data-scene="overview" data-background="assets/soundersmatchday.mp4">
+              /*video credit MLS from https ://www.youtube.com /watch?v=USUFGnNHUTs*/
+                <div class="fullscreen text-center">
+
+                    <h1 class="display-4 d-flex justify-content-center">Sounders Matchday Experience</h1>
+
+
+                    <small class="d-flex justify-content-center" style="color: rgba(255,255,255,0.95)">This story map
+                        illustrates the matchday experiences of the Seattle Sounders supporters.
+                    </small>
+                </div>
+            </section>
+            <section data-scene="centurylinkfield">
+                <h2>CenturyLink Field</h2>
+                <p>Seattle Sounders FC plays home matches at CenturyLink Field in Seattle, also home to the Seattle Seahawks.
+                  CenturyLink Field is a 69,000-seat stadium designed for both teams. The Sounders artificially limit the
+                  stadium's capacity for MLS matches, with certain seating sections covered with tarpaulins to provide
+                  "a more intimate atmosphere". However, the club does open the entire stadium for international friendly
+                  matches and some league matches.</p>
+            </section>
+
+            <section data-scene="parking">
+                <h2>Parking</h2>
+                <p>Parking is available in a variety of areas around Century Link Field. The stadium offers parking close up
+                  at the north parking lot and the Century Link Field parking garage. Other close parking areas include the
+                  T-Mobile Field parking garage, and other sites, as indicated on the map. </p>
+            </section>
+
+            <section data-scene="pregame">
+                <h2>Pregame Food and Drink</h2>
+                <p>No matchday experience is complete without a visit to a pregame location. Finding locations for food and
+                  drink outside of the stadium can be a lot of fun as its own experience and also save you a lot of money
+                  by staying away from overpried stadium fare. Some of the most popular pregame locations can be found on the map.</p>
+            </section>
+
+            <section data-scene="end" data-background="assets/end.jpg">
+                <div class="fullscreen text-center">
+                    <h1 class="display-4 d-flex justify-content-center">Immerse Yourself in the Experience!!!</h1>
+                    <small class="d-flex justify-content-center" style="color: rgba(255,255,255,0.95)">This storymap uses spatial data and tiles created by Cartogramdb, mapbaox, and QTiles.
+                    </small>
+                </div>
+            </section>
+
+        </div>
+        <!--map div-->
+        <div class="col-sm-6 col-md-8 storymap-map"></div>
+    </div>
+
+
+    <dl>
+        <dt>
+            <!--facebook icon-->
+            <!--<a class="fab fa-facebook-square btn"
+               href="https://facebook.com/sharer.php?u=http://geoviz.ceoas.oregonstate.edu/storymap/examples/2.5/video.html"
+               target="_blank"></a>-->
+        </dt>
+        <dt>
+            <!--github icon-->
+            <a class="fab fa-github btn" href="https://github.com/mattj777/matchdayexperiencemapproject" style="top:40px"
+               target="_blank"></a>
+        </dt>
+        <dt>
+            <!--info icon-->
+            <i class="fas fa-info-circle btn" style="top:60px" data-toggle="modal" data-target="#info-modal"></i>
+        </dt>
+    </dl>
+
+    <!--the info page-->
+    <div class="modal fade" id="info-modal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">About</h4>
+                </div>
+                <div class="modal-body">
+                    <p>This storymap was designed as an example of the potential uses of storymaps as a promotional tool for the fan experience. This map was made as a project for GEOG 458:
+                      Advanced Digital Geographies at the University of Washington, Seattle (June 2020). The story map library is derived from the
+                        storymap plugin for leaflet at <a>http://atlefren.github.io/storymap/</a>, and its functionality
+                        relies on both leaflet and Boostrap.</p>
+                    <p><b>storymap.js</b> | Released Date: 02/20/2017 | Version: 2.5 | MIT License </p>
+                    <p><b>Author: Matthew Jackson</b> | University of Washington
+                    </p>
+                    <p>Storymap template authored by <b>Bo Zhao.</b></p>
+                    <p>This storymap uses spatial data and tiles created by Cartogramdb, mapbaox, and QTiles.</p>
+                    <p>All information about the Sounders FC, supporters, matchday march, and stadium were sourced from <a href="https://en.wikipedia.org/wiki/Seattle_Sounders_FC.">Wikipedia</a>.</p>
+                    <p>Information about dining locations was partially sourced from <a href="https://soundersnation.com/2013/02/26/sounders-pre-game-eats-drinks/">Fansided</a>, as well as the author's personel experience and opinion.</p>
+                    <p>All photos of restuarants were taken from restuarant pages on Google Maps. All photos of parking locations were taken from Google Streetview.</p>
+                    <p>Photo credit to Mike Russel Foto for picture of ECS. Photo credit to centurylinkfield.org for photo of the stadium. Photo credit to Seattle Sounders for pictures of March to the Match and Sound Wave.</p>
+                    <p>Opening video <a href="https://www.youtube.com/watch?v=USUFGnNHUTs">footage</a> courtesy of the MLS YouTube Channel, and clipped by Matthew Jackson.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- main javascript -->
+<script type="text/javascript">
+
+
+    // Create Legend Contents in html format
+    //var county_legend = '<i style="background: orange; opacity: 0.5"></i><p><b>Counties</b></p>';
+    //var forest_legend = '<i style="background: green; opacity: 0.5"></i><p><b>Forest</b></p>';
+
+    // For each layer, the first variable is the layer, the second is the legend. The layer variable can be any kinds of layers that leaflet.js supports.
+    // var layers = {
+    //      layer1: {layer: layer1, legend: legend1},
+    //      layer2: {layer: layer2, legend: legend2}
+    //      ...
+    // }
+
+    var layers = {
+        sounders: {layer: L.tileLayer('assets/tiles/Sounders/{z}/{x}/{y}.png',{tms: true})},
+        cartodb_light: {layer: L.tileLayer('http://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png')},
+        centurylinkfield: {layer: L.marker([47.595075, -122.331647]).bindPopup('<center><b>CenturyLink Field</b><br><img src= "assets/clink.jpg" width="300"><br>800 Occidental Ave S<br>(<a href="https://www.soundersfc.com/tickets/single-match-tickets" target="_blank">Single Match Tickets</a>)<br><br>Seattle Sounders FC play home matches at CenturyLink Field in Seattle. CenturyLink Field is a 69,000-seat stadium designed for football and soccer. The Sounders artificially limit the stadium&#39;s capacity for MLS matches, with certain seating sections covered with tarpaulins to provide "a more intimate atmosphere". However, the club does open the entire stadium for international friendly matches and some league matches.', {maxWidth: "350"})},
+        soundwave: {layer: L.marker([47.596273, -122.331647]).bindPopup('<center><b>The Sound Wave</b><br><img src= "assets/soundwave.jpg" width="300"><br>North Entrance<br>(<a href="https://en.wikipedia.org/wiki/Seattle_Sounders_FC_supporters" target="_blank">More Information</a>)<br><br>The Sounders have their own marching band, the first of its kind in MLS. This led to the creation of the Sound Wave, a 53-member marching band consisting of brass and marching percussion. The band plays music from multiple genres, such as Latin, rock and pop, and sits on the north end of CenturyLink Field.', {maxWidth: "350"})},
+        marchtothematch: {layer: L.marker([47.596933, -122.333283]).bindPopup('<center><b>March to the Match</b><br><img src= "assets/march.jpg" width="300"><br>Occidental Ave S<br>(<a href="https://en.wikipedia.org/wiki/Seattle_Sounders_FC_supporters" target="_blank">More Information</a>)<br><br>The March to the Match, in which fans march from Occidental Park to CenturyLink Field before each home match, is also accompanied by the Sound Wave and supporters groups.', {maxWidth: "350"})},
+        supporters: {layer: L.marker([47.594500, -122.331647]).bindPopup('<center><b>Supporters Sections</b><br><img src= "assets/supporters.jpg" width="300"><br>Supporters Sections<br>(<a href="https://en.wikipedia.org/wiki/Seattle_Sounders_FC_supporters" target="_blank">More Information</a>)<br><br>There are currently four recognized, independent supporters groups for the Sounders. Emerald City Supporters, which formed in 2005 to support the USL Sounders, is the largest supporter group and sits in the south end of the stadium in sections 121–123. Eastside Supporters is a group which can be found in section 150 which they call "The Pod". Gorilla FC is a Sounders supporters group that sits in the south end of CenturyLink Field in Sections 119 and 120. The North End Faithful sit in the north end of the stadium beneath the "Hawks Nest" in sections 100 and 144–152.', {maxWidth: "350"})},
+        northlot: {layer: L.marker([47.597559, -122.332547]).bindPopup('<center><b>North Parking Lot</b><br><img src= "assets/northlot.jpg" width="300"><br>Stadium Pl S<br>(<a href="https://www.google.com/maps/dir//47.5974213,-122.3315788/@47.5972978,-122.3317649,20.25z/data=!4m2!4m1!3e3" target="_blank">Directions</a>)<br><br>The North Lot at CenturyLink is probably the best non-garage parking location. Although it will charge a higher rate than other lots further from the stadium, this lot is by far the most convenient and also allows you a chance to catch the matchday excitement from the moment you step out your door.', {maxWidth: "350"})},
+        clpg: {layer: L.marker([47.593180, -122.331654]).bindPopup('<center><b>CenturyLink Parking Garage</b><br><img src= "assets/clpg.jpg" width="300"><br>3302 S Royal Brougham Way<br>(<a href="https://www.google.com/maps/dir//CenturyLink+Field+Event+Center+Parking,+330S+S+Royal+Brougham+Way,+Seattle,+WA+98134/@47.5933834,-122.3318706,18z/data=!4m16!1m6!3m5!1s0x0:0x1424dd8beac121c7!2sCenturyLink+Field+Event+Center+Parking!8m2!3d47.593251!4d-122.3310672!4m8!1m0!1m5!1m1!1s0x54906aa26ce468f1:0x1424dd8beac121c7!2m2!1d-122.3310671!2d47.5932511!3e3" target="_blank">Directions</a>)<br><br>The CenturyLink Parking Garage is certainly the best option for easy and convenient parking, although at a steep price.', {maxWidth: "350"})},
+        tmpg: {layer: L.marker([47.589682, -122.332039]).bindPopup('<center><b>T-Mobile Parking Garage</b><br><img src= "assets/tmpg.jpg" width="300"><br>301 Edgar Martinez Dr S<br>(<a href="https://www.google.com/maps/dir//Mariners+Garage,+301-337+Edgar+Martinez+Dr+S,+Seattle,+WA+98134/@47.5891052,-122.3337287,18z/data=!4m16!1m6!3m5!1s0x54906b440cb4dd97:0xc1c5aa98daf648c5!2sMariners+Garage!8m2!3d47.5892929!4d-122.332531!4m8!1m0!1m5!1m1!1s0x54906b440cb4dd97:0xc1c5aa98daf648c5!2m2!1d-122.3325309!2d47.5892929!3e3" target="_blank">Directions</a>)<br><br>Although a farther walk from the stadium than the CenturyLink garage, this location offers a slight discount on parking fees, while still being fairly close to the pitch.', {maxWidth: "350"})},
+        unionpg: {layer: L.marker([47.597460, -122.328512]).bindPopup('<center><b>Union Station Parking Garage</b><br><img src= "assets/unionpg.jpg" width="300"><br>554 4th Ave S<br>(<a href="https://www.google.com/maps/dir//Union+State+Parking+Garage,+820+4th+Ave+S,+Seattle,+WA+98134/@47.5952492,-122.3327727,17z/data=!4m16!1m6!3m5!1s0x54906aa2dbdb4b01:0xfc842a2660c5d2ec!2sUnion+State+Parking+Garage!8m2!3d47.5956212!4d-122.32868!4m8!1m0!1m5!1m1!1s0x54906aa2dbdb4b01:0xfc842a2660c5d2ec!2m2!1d-122.3286798!2d47.5956213!3e3" target="_blank">Directions</a>)<br><br>Secure garage with gate attendent. This garage is not as pricey as ones run by stadium, so it is usually a great value.', {maxWidth: "350"})},
+        occidentalpl: {layer: L.marker([47.601088, -122.332495]).bindPopup('<center><b>Occidental Ave Parking Lot</b><br><img src= "assets/occidentalpl.jpg" width="300"><br>112 Occidental Ave S<br>(<a href="https://www.google.com/maps/dir//112+Occidental+Ave+S+Parking,+112+Occidental+Ave+S,+Seattle,+WA+98104/@47.6008442,-122.3330144,18.25z/data=!4m16!1m6!3m5!1s0x0:0x457a2cf0afd98a91!2s112+Occidental+Ave+S+Parking!8m2!3d47.601132!4d-122.3324941!4m8!1m0!1m5!1m1!1s0x54906abac41bcd29:0x457a2cf0afd98a91!2m2!1d-122.332494!2d47.6011321!3e3" target="_blank">Directions</a>)<br><br>For those that plan to get in early and pregame before the match, this parking area is probably the best. With a location close to many dining options and the March to the Match, this is a underappreciated parking spot.', {maxWidth: "350"})},
+        fourthavepl: {layer: L.marker([47.593283, -122.328311]).bindPopup('<center><b>1000 4th Ave S Parking</b><br><img src= "assets/fourthavepl.jpg" width="300"><br>1000 4th Ave S<br>(<a href="https://www.google.com/maps/dir//1000+4th+Ave+S+Parking,+1000+4th+Ave+S,+Seattle,+WA+98134/@47.5924785,-122.3301468,17.75z/data=!4m16!1m6!3m5!1s0x0:0xd2daa1edc84eaacf!2s1000+4th+Ave+S+Parking!8m2!3d47.593362!4d-122.3283105!4m8!1m0!1m5!1m1!1s0x54906aa282383475:0xd2daa1edc84eaacf!2m2!1d-122.3283108!2d47.5933622!3e3" target="_blank">Directions</a>)<br><br>This location is still a fair walk across 4th Ave and over a pedestrian bridge, but the discount in price is worth it to some.', {maxWidth: "350"})},
+        foodfuel: {layer: L.marker([47.600956, -122.332081]).bindPopup('<center><b>Fuel Sports</b><br><img src= "assets/fuel.jpg" width="300"><br>164 South Washington Street<br>(<a href="http://www.fuelseattle.com/menu/" target="_blank">Menu</a>)<br><br>Official Bar of the Emerald City Supporters, according to fans, a great place to pregame before joining the march to the match.', {maxWidth: "350"})},
+        foodtats: {layer: L.marker([47.601559, -122.332307]).bindPopup('<center><b>TAT&#39;s Delicatessen</b><br><img src= "assets/tats.jpg" width="300"><br>159 Yesler Way<br>(<a href="http://www.tatsdeli.com/menu.asp?menu18" target="_blank">Menu</a>)<br><br>East Coast style delicatessen, best known for its Philly cheeseteaks.', {maxWidth: "350"})},
+        foodpyramid: {layer: L.marker([47.591993, -122.334781]).bindPopup('<center><b>Pyramid Alehouse Restaurant</b><br><img src= "assets/pyramid.jpg" width="300"><br>1201 1st Ave S<br>(<a href="http://places.singleplatform.com/pyramid-alehouse-brewery--restaurant/menu?ref=google" target="_blank">Menu</a>)<br><br>This location features a beer garden, and an outstanding food selection for a brewery. One of Seattle&#39;s local breweries and a favorite for matchday crowds.', {maxWidth: "350"})},
+        foodflatstick: {layer: L.marker([47.600103, -122.331003]).bindPopup('<center><b>Flatstick Pub and Manu&#39;s Tacos</b><br><img src= "assets/flatstick.jpg" width="300"><br>240 2nd Ave S<br>(<a href="https://flatstickpub.com/wp-content/uploads/2018/07/Manus-Tacos-Menu.pdf" target="_blank">Menu</a>)<br><br>Hidden in a basement, Flatstick is one of the harder to find pregame locations in the area, but finding it is well worthwhile. This location features a large selection of craft beers, a side counter for eats operated by Manu&#39;s Tacos, and a mini golf Course. That&#39;s right, mini golf.', {maxWidth: "350"})},
+        foodelysian: {layer: L.marker([47.597039, -122.333815]).bindPopup('<center><b>Elysian Fields</b><br><img src= "assets/elysian.jpg" width="300"><br>542 1st Ave S<br>(<a href="https://www.elysianbrewing.com/assets/images/locations/elysian-fields/Fields_Event_Winter_2020_O.pdf" target="_blank">Menu</a>)<br><br>Although not known for their food, Elysian brews have been a Seattle staple for some time. Proof of that can be seen every game day, when this location gets packed by supporters. Arrive early for best service.', {maxWidth: "350"})},
+        foodqa: {layer: L.marker([47.598039, -122.332969]).bindPopup('<center><b>Quality Athletics</b><br><img src= "assets/qa.jpg" width="300"><br>121 S King St<br>(<a href="https://www.qualityathletics.com/" target="_blank">Menu</a>)<br><br>It&#39;s all in the name. The hip location specializes in catering to sports fans, even on non-match days. Quality Athletics is agreat option for both food and drinks.', {maxWidth: "350"})},
+        fooddzdh: {layer: L.marker([47.597839, -122.327527]).bindPopup('<center><b>Dough Zone Dumpling House</b><br><img src= "assets/dzdh.jpg" width="300"><br>504 5th Ave S #109<br>(<a href="https://www.facebook.com/doughzone/" target="_blank">Menu</a>)<br><br>Dough Zone&#39;s smaller location, inside The Publix, is definitely worth the slightly longer walk that awaits you as you head to the stadium. The xiao long bao and handmade noodles are can&#39;t miss.', {maxWidth: "350"})},
+        foodaltstadt: {layer: L.marker([47.600463, -122.334375]).bindPopup('<center><b>Altstadt Bierhalle and Brathaus</b><br><img src= "assets/altstadt.jpg" width="300"><br>209 1st Ave S<br>(<a href="http://places.singleplatform.com/altstadt-bierhalle--brathaus/menu?ref=google#menu_1860115" target="_blank">Menu</a>)<br><br>Those looking for a more impressive meal, and less of a bar scene, will certainly be happy with the offerings at Altstadt. This location is slightly farther away than some pregame options, but the authentic German fare is well worth it.', {maxWidth: "350"})},
+
+    };
+
+    var scenes = {
+        overview: {lat: 44.0000000, lng: -123.5000000, zoom: 7, name: 'Cover Page', layers: []},
+        centurylinkfield: {lat: 47.595075, lng: -122.331647, zoom: 17, name: 'centurylinkfield', layers: [layers.sounders, layers.centurylinkfield, layers.soundwave, layers.marchtothematch, layers.supporters]},
+        parking: {lat: 47.597500, lng: -122.331647, zoom: 15, name: 'parking', layers: [layers.sounders, layers.northlot, layers.clpg, layers.tmpg, layers.unionpg, layers.occidentalpl, layers.fourthavepl]},
+        pregame: {lat: 47.597500, lng: -122.331647, zoom: 15, name: 'pregame', layers: [layers.sounders, layers.foodfuel, layers.foodtats, layers.foodpyramid, layers.foodflatstick, layers.foodelysian, layers.foodqa, layers.fooddzdh, layers.foodaltstadt]},
+        end: {lat: 44.0000000, lng: -123.5000000, zoom: 7, name: 'The End'}
+    };
+
+    $('#storymap').storymap({
+        scenes: scenes,
+        baselayer: layers.cartodb_light,
+        legend: true, // if you do not want a legend feature, you can simply not define the createLegend function.
+        credits: "",
+        loader: true,
+        scalebar: false,
+        fly: true,
+        navwidget: true,
+
+        createMap: function () {
+            // create a map in the "map" div, set the view to a given place and zoom
+            var map = L.map($(".storymap-map")[0], {
+                zoomControl: false, scrollWheelZoom: false, fadeAnimation: true,
+                zoomAnimation: true
+            }).setView([44, -120], 7);
+
+            //add an miniglobe
+            // new L.Control.GlobeMiniMap({
+          //      marker: 'red',
+            //    position: 'bottomright'
+            //}).addTo(map);
+
+
+            return map;
+        }
+    });
+</script>
+</body>
+</html>
