@@ -11,4 +11,4 @@ The story map library is derived from the storymap [plugin] for leaflet, and its
 [Wikipedia]: https://en.wikipedia.org/wiki/Seattle_Sounders_FC
 [Fansided]: https://soundersnation.com/2013/02/26/sounders-pre-game-eats-drinks/
 [CenturyLink Field]: centurylinkfield.org
-[foogtage]: https://www.youtube.com/watch?v=USUFGnNHUTs
+[footage]: https://www.youtube.com/watch?v=USUFGnNHUTs
